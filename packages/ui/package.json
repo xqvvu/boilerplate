@@ -1,0 +1,20 @@
+{
+  "name": "@xqvvu/ui",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.stylex": "./src/tokens/tokens.stylex.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@stylexjs/stylex": "catalog:",
+    "react": "catalog:react"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:react",
+    "typescript": "catalog:"
+  }
+}

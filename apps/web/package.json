@@ -1,0 +1,39 @@
+{
+  "name": "@xqvvu/web",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "fmt": "vp fmt",
+    "typecheck": "tsc",
+    "tsr:generate": "tsr generate",
+    "tsr:watch": "tsr watch"
+  },
+  "dependencies": {
+    "@tanstack/react-devtools": "catalog:tanstack",
+    "@tanstack/react-router": "catalog:tanstack",
+    "@tanstack/react-router-devtools": "catalog:tanstack",
+    "@xqvvu/ui": "workspace:*",
+    "react": "catalog:react",
+    "react-dom": "catalog:react"
+  },
+  "devDependencies": {
+    "@stylexjs/unplugin": "catalog:",
+    "@tanstack/devtools-vite": "catalog:tanstack",
+    "@tanstack/router-cli": "catalog:tanstack",
+    "@tanstack/router-plugin": "catalog:tanstack",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react",
+    "@vitejs/plugin-react": "catalog:react",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}

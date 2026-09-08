@@ -1,0 +1,21 @@
+{
+  "name": "@xqvvu/boilerplate",
+  "type": "module",
+  "scripts": {
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "fmt": "vp fmt"
+  },
+  "devDependencies": {
+    "@stylexjs/eslint-plugin": "catalog:",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.3.4",
+      "onFail": "download"
+    }
+  }
+}
