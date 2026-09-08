@@ -1,0 +1,21 @@
+{
+  "name": "@xqvvu/server",
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "tsc && vp pack",
+    "preview": "vp preview",
+    "test": "vp test",
+    "test:coverge": "vp test run --coverage"
+  },
+  "dependencies": {
+    "@hono/node-server": "catalog:",
+    "hono": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

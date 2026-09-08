@@ -15,10 +15,6 @@ export default defineConfig({
     },
   },
 
-  create: {
-    defaultTemplate: "@xqvvu",
-  },
-
   fmt: {
     ignorePatterns,
 
@@ -35,12 +31,12 @@ export default defineConfig({
       typeCheck: true,
     },
 
-    plugins: ["typescript"],
+    plugins: ["typescript", "eslint", "unicorn"],
 
     overrides: [
       {
         files: ["apps/web/**", "packages/ui/**"],
-        plugins: ["react"],
+        plugins: ["react", "react-perf", "vitest"],
         jsPlugins: ["@stylexjs/eslint-plugin"],
         rules: {
           "@stylexjs/valid-styles": "error",
@@ -48,6 +44,10 @@ export default defineConfig({
           "@stylexjs/valid-shorthands": "warn",
           "@stylexjs/sort-keys": "warn",
         },
+      },
+      {
+        files: ["apps/server/**"],
+        plugins: ["node", "vitest"],
       },
     ],
   },
