@@ -3,6 +3,22 @@ import { defineConfig } from "vite-plus";
 const ignorePatterns = ["**/route-tree.gen.ts", "**/node_modules", "**/dist"];
 
 export default defineConfig({
+  run: {
+    enablePrePostScripts: true,
+    cache: {
+      tasks: true,
+    },
+    tasks: {
+      dev: {
+        command: [],
+      },
+    },
+  },
+
+  create: {
+    defaultTemplate: "@xqvvu",
+  },
+
   fmt: {
     ignorePatterns,
 
@@ -34,5 +50,15 @@ export default defineConfig({
         },
       },
     ],
+  },
+
+  check: {
+    fmt: true,
+    lint: true,
+  },
+
+  staged: {
+    "*.{js,jsx,ts,tsx}": "vp check --fix",
+    "*.{json,css}": "vp fmt --write",
   },
 });
