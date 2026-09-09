@@ -4,9 +4,10 @@
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "tsc && vp pack",
-    "start": "node dist/main.mjs",
-    "test": "vp test",
-    "test:coverage": "vp test run --coverage",
+    "start": "node --enable-source-maps dist/main.mjs",
+    "test": "vp test run",
+    "test:ui": "vp test run -w --ui",
+    "test:coverage": "vp test run --ui -w --coverage",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -15,7 +16,8 @@
   },
   "devDependencies": {
     "@types/node": "catalog:",
-    "@vitest/coverage-v8": "catalog:",
+    "@vitest/coverage-v8": "catalog:test",
+    "@vitest/ui": "catalog:test",
     "tsx": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
