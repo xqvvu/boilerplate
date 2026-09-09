@@ -4,12 +4,15 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./astryx.stylex": "./src/tokens/astryx.stylex.ts",
     "./tokens.stylex": "./src/tokens/tokens.stylex.ts"
   },
   "scripts": {
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@astryxdesign/core": "catalog:",
+    "@astryxdesign/theme-neutral": "catalog:",
     "@stylexjs/stylex": "catalog:",
     "react": "catalog:react"
   },

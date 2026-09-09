@@ -6,9 +6,17 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite-plus";
 
+const apiProxyTarget = process.env["API_PROXY_TARGET"] ?? "http://127.0.0.1:3000";
+
 export default defineConfig({
   resolve: {
     tsconfigPaths: true,
+  },
+
+  server: {
+    proxy: {
+      "/rpc": apiProxyTarget,
+    },
   },
 
   plugins: [

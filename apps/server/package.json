@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "@hono/node-server": "catalog:",
+    "@orpc/server": "catalog:orpc",
+    "@xqvvu/api": "workspace:*",
     "hono": "catalog:"
   },
   "devDependencies": {
+    "@orpc/client": "catalog:orpc",
     "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:test",
     "@vitest/ui": "catalog:test",

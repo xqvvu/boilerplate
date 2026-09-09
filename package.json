@@ -13,15 +13,16 @@
     "typecheck": "vp run -r typecheck"
   },
   "devDependencies": {
+    "@astryxdesign/cli": "catalog:",
+    "@astryxdesign/core": "catalog:",
+    "@astryxdesign/theme-neutral": "catalog:",
     "@stylexjs/eslint-plugin": "catalog:",
+    "@stylexjs/stylex": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.3.4",
-      "onFail": "download"
-    }
+  "packageManager": "pnpm@12.3.4",
+  "astryx": {
+    "theme": "@astryxdesign/theme-neutral"
   }
 }

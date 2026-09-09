@@ -1,6 +1,6 @@
 import { defineConfig } from "vite-plus";
 
-const ignorePatterns = ["**/route-tree.gen.ts", "**/node_modules", "**/dist"];
+const ignorePatterns = ["**/route-tree.gen.ts", "**/node_modules", "**/dist", "**/*.md"];
 
 export default defineConfig({
   run: {

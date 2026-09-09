@@ -17,27 +17,39 @@ To build this application for production:
 pnpm build
 ```
 
-## Styling
+## UI and styling
 
-This project uses [StyleX](https://stylexjs.com/) for styling. Define styles with
-`stylex.create` and apply them with `stylex.props`:
+This project uses [ASTRYX](https://github.com/facebook/astryx) for accessible,
+themeable UI components and [StyleX](https://stylexjs.com/) for component-level
+customization. The neutral theme, reset, and ASTRYX base styles are wired by
+`UIProvider` from `@xqvvu/ui`; the provider is mounted in
+`src/routes/__root.tsx`. Do not import them again in individual routes.
+
+Start each page with `AppShell`, then use `VStack`, `HStack`, or `Grid` for
+layout. Use ASTRYX component props before adding custom styles. Define custom
+styles with `stylex.create` and pass them through `xstyle`:
 
 ```tsx
+import { VStack } from "@xqvvu/ui";
+import { spacingVars } from "@xqvvu/ui/astryx.stylex";
 import * as stylex from "@stylexjs/stylex";
 
 const styles = stylex.create({
   root: {
-    padding: 16,
+    marginInline: "auto",
+    padding: spacingVars["--spacing-4"],
   },
 });
 
 function Component() {
-  return <div {...stylex.props(styles.root)}>Content</div>;
+  return <VStack xstyle={styles.root}>Content</VStack>;
 }
 ```
 
-The StyleX Vite plugin is configured in `vite.config.ts` and extracts styles at
-build time.
+Use ASTRYX tokens for colors, spacing, radius, and shadows. Avoid raw hex/px,
+hand-written utility classes, and page-level native layout wrappers. For
+component details, run `pnpm exec astryx component <Name>`; for migration
+guidance, run `pnpm exec astryx docs migration`.
 
 ## Routing
 

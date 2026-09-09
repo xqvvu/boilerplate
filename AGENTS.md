@@ -32,4 +32,48 @@ release. Add a tool name to select part of the graph. For example, run
 
 WHEN import `z`, MUST use `import * as z from "zod";`
 
+## Server architecture
+
+Use a feature-first modular monolith for `apps/server`.
+
+- Keep `src/orpc` limited to oRPC context, the shared implementer, handler setup, and root router composition.
+- Keep each `src/features/<domain>/router.ts` as a small composition entrypoint. It may contain simple handlers, but it must not become a business-logic container.
+- When a feature grows, move one procedure adapter per file into `src/features/<domain>/procedures/`.
+- Keep oRPC handlers thin: adapt input/context and call an application use case.
+- Add `application/` for meaningful use-case orchestration, `domain/` for complex invariants, and `ports/` plus infrastructure adapters only when external I/O requires dependency inversion.
+- Do not create empty Clean Architecture layers, a catch-all `service.ts`, or generic cross-feature folders without a concrete need.
+- Organize public router namespaces by business capability, not by HTTP method or implementation filename.
+- Keep `packages/api` limited to public schemas, contracts, and client types. Do not put Hono context, database models, or server-only values there.
+- Use `@/...` for all internal imports within `apps/server`; use workspace package names such as `@xqvvu/api` for cross-package imports.
+
 <!--PROJECT-->
+
+<!-- ASTRYX:START -->
+Astryx v0.5.4 · 90+ components
+CLI: run every command as `pnpm exec astryx <cmd>` (shown below as `astryx ...`).
+
+SETUP (once, in your app entry e.g. main.tsx) — without these, components render unstyled:
+  import "@astryxdesign/core/reset.css";
+  import "@astryxdesign/core/astryx.css";
+
+WORKFLOW — discover, don't guess. Before writing UI:
+1. `astryx build "<idea>"` — START HERE: returns a kit (closest [page] + [block]s + [component]s). No args = full playbook.
+2. `astryx template <name> [--skeleton]` — scaffold the [page]/[block]s it named, or study their layout. Templates are reference code.
+3. `astryx component <Name>` — props + examples for every component you use.
+
+RULES:
+- No <div> — components do all layout/spacing, page frame included.
+- Frame first: read `astryx docs layout` before writing any page or screen — page frame, region widths, breakpoint behavior.
+- Dense data = rows (Table, List/Item), never Card-wrapped list items; Card is for standalone widgets. Status = StatusDot/Token; Badge = counts only.
+- Custom styling: component props first; else StyleX `xstyle` (the Vite StyleX compiler is configured here) with ASTRYX token vars. No raw hex/px and no new Tailwind utility layer.
+- Tokens for every value (`astryx docs tokens`). Brand/accent belongs in the theme (`astryx theme list` / `theme add <slug>`, or `astryx theme template` for a custom one) — never override --color-* in :root.
+- SELF-CHECK before you finish: re-read the file and replace any raw <div>/<span> layout, imported .css/@apply, or hardcoded value (#hex, 16px) with the component or a token (var(--color-*|--spacing-*|…)). If unsure a component/prop exists, run `astryx component <Name>` / `astryx search "<thing>"`; don't hand-roll CSS.
+
+MORE CLI:
+  search "<query>"   find any component / hook / doc / template / block
+  component --list   90+ components by category
+  template --list    page + block recipes
+  docs <topic>       browser-support, cli-integrations, color, elevation, getting-started, icons, illustrations, internationalization, layout, migration, motion, principles, shape, spacing, styling-libraries, styling, theme, tokens, typography, working-with-ai
+  swizzle <Name>     eject component source for deep customization
+  upgrade --apply    run after any @astryxdesign/core bump
+<!-- ASTRYX:END -->

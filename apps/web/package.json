@@ -17,9 +17,11 @@
     "tsr:watch": "tsr watch"
   },
   "dependencies": {
+    "@orpc/client": "catalog:orpc",
     "@tanstack/react-devtools": "catalog:tanstack",
     "@tanstack/react-router": "catalog:tanstack",
     "@tanstack/react-router-devtools": "catalog:tanstack",
+    "@xqvvu/api": "workspace:*",
     "@xqvvu/ui": "workspace:*",
     "react": "catalog:react",
     "react-dom": "catalog:react"

@@ -3,6 +3,8 @@ packages:
   - packages/*
 
 allowBuilds:
+  "@astryxdesign/cli": true
+  "@astryxdesign/core": true
   esbuild: true
   lightningcss: true
 
@@ -18,8 +20,16 @@ catalog:
   "@hono/node-server": ^2.1.1
   hono: ^4.13.7
   tsx: ^4.23.13
+  "@astryxdesign/core": 0.5.4
+  "@astryxdesign/theme-neutral": 0.5.4
+  "@astryxdesign/cli": 0.5.4
 
 catalogs:
+  orpc:
+    "@orpc/client": 2.0.0-beta.34
+    "@orpc/contract": 2.0.0-beta.34
+    "@orpc/server": 2.0.0-beta.34
+
   test:
     "@vitest/coverage-v8": 4.1.11
     "@vitest/ui": 4.1.11
