@@ -2,11 +2,12 @@
   "name": "@xqvvu/server",
   "type": "module",
   "scripts": {
-    "dev": "vp dev",
+    "dev": "tsx watch src/main.ts",
     "build": "tsc && vp pack",
-    "preview": "vp preview",
+    "start": "node dist/main.mjs",
     "test": "vp test",
-    "test:coverge": "vp test run --coverage"
+    "test:coverage": "vp test run --coverage",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@hono/node-server": "catalog:",
@@ -14,6 +15,8 @@
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "tsx": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"

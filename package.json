@@ -2,9 +2,15 @@
   "name": "@xqvvu/boilerplate",
   "type": "module",
   "scripts": {
+    "build": "vp run -r build",
+    "dev": "vp run @xqvvu/web#dev",
     "lint": "vp lint",
     "lint:fix": "vp lint --fix",
-    "fmt": "vp fmt"
+    "fmt": "vp fmt",
+    "prepare": "vp config",
+    "ready": "vp check && vp run -r test && vp run -r build",
+    "test": "vp run -r test",
+    "typecheck": "vp run -r typecheck"
   },
   "devDependencies": {
     "@stylexjs/eslint-plugin": "catalog:",

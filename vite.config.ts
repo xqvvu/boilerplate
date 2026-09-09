@@ -8,11 +8,6 @@ export default defineConfig({
     cache: {
       tasks: true,
     },
-    tasks: {
-      dev: {
-        command: [],
-      },
-    },
   },
 
   fmt: {
@@ -58,7 +53,7 @@ export default defineConfig({
   },
 
   staged: {
-    "*.{js,jsx,ts,tsx}": "vp check --fix",
-    "*.{json,css}": "vp fmt --write",
+    "*.{js,jsx,ts,tsx,mjs,cjs}": ["vp check --fix"],
+    "*.{json,css}": ["vp fmt --write"],
   },
 });

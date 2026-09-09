@@ -6,9 +6,10 @@ export default defineConfig({
   },
 
   test: {
-    include: ["src/**/*.test.ts", "test/**/*.{test,spec}.ts"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}", "test/**/*.{test,spec}.{ts,tsx}"],
     coverage: {
-      reporter: ["html-spa"],
+      provider: "v8",
+      reporter: ["text", "html-spa"],
     },
   },
 
