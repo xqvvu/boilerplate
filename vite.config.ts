@@ -54,6 +54,6 @@ export default defineConfig({
 
   staged: {
     "*.{js,jsx,ts,tsx,mjs,cjs}": ["vp check --fix"],
-    "*.{json,css}": ["vp fmt --write"],
+    "*.{json,css,yaml,yml}": ["vp fmt --write"],
   },
 });

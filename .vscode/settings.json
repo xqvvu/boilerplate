@@ -15,6 +15,15 @@
     "**/route-tree.gen.ts": true
   },
 
+  "yaml.format.enable": false,
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[yml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
   "[typescript][javascript][json][css][typescriptreact]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "oxc.oxc-vscode"
