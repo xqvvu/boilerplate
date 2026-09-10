@@ -67,3 +67,11 @@ peerDependencyRules:
     vitest: "*"
 
 minimumReleaseAgeStrict: false
+minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeIgnoreMissingTime: true
+
+minimumReleaseAgeExclude:
+  - "@orpc/client@2.0.0-beta.35"
+  - "@orpc/contract@2.0.0-beta.35"
+  - "@orpc/server@2.0.0-beta.35"
+  - "@orpc/shared@2.0.0-beta.35"
