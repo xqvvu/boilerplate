@@ -211,14 +211,14 @@ catalogs:
       version: 4.5.4
   orpc:
     '@orpc/client':
-      specifier: 2.0.0-beta.34
-      version: 2.0.0-beta.34
+      specifier: 2.0.0-beta.35
+      version: 2.0.0-beta.35
     '@orpc/contract':
-      specifier: 2.0.0-beta.34
-      version: 2.0.0-beta.34
+      specifier: 2.0.0-beta.35
+      version: 2.0.0-beta.35
     '@orpc/server':
-      specifier: 2.0.0-beta.34
-      version: 2.0.0-beta.34
+      specifier: 2.0.0-beta.35
+      version: 2.0.0-beta.35
   react:
     '@types/react':
       specifier: ^19.2.18
@@ -299,7 +299,7 @@ importers:
         version: 2.1.1(hono@4.13.7)
       '@orpc/server':
         specifier: catalog:orpc
-        version: 2.0.0-beta.34
+        version: 2.0.0-beta.35
       '@xqvvu/api':
         specifier: workspace:*
         version: link:../../packages/api
@@ -309,7 +309,7 @@ importers:
     devDependencies:
       '@orpc/client':
         specifier: catalog:orpc
-        version: 2.0.0-beta.34
+        version: 2.0.0-beta.35
       '@types/node':
         specifier: 'catalog:'
         version: 26.5.0
@@ -339,7 +339,7 @@ importers:
     dependencies:
       '@orpc/client':
         specifier: catalog:orpc
-        version: 2.0.0-beta.34
+        version: 2.0.0-beta.35
       '@tanstack/react-devtools':
         specifier: catalog:tanstack
         version: 0.10.12(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(csstype@3.2.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(solid-js@1.9.15)
@@ -397,7 +397,7 @@ importers:
     dependencies:
       '@orpc/contract':
         specifier: catalog:orpc
-        version: 2.0.0-beta.34
+        version: 2.0.0-beta.35
       zod:
         specifier: 'catalog:'
         version: 4.5.4
@@ -870,14 +870,14 @@ packages:
       '@neodrag/core': 3.0.0-next.11
       solid-js: ^1.0.0
 
-  '@orpc/client@2.0.0-beta.34':
-    resolution: {integrity: sha512-9Jxq/de7pc54K0WU2Qz+qJhZ5rFYtyWv6sJEMUacqpDnPutft1yC4meNQLz2PgS1OT+KHWfBJS6MZ7+crEBeow==}
+  '@orpc/client@2.0.0-beta.35':
+    resolution: {integrity: sha512-r/8CNzT2+uFefA+auufc2UCX2esA6Q8WnNMUXv916kVAr4vkR4M9/dFHkOyZUW1NhI9yj6SqSdURlFrv6N+3eA==}
 
-  '@orpc/contract@2.0.0-beta.34':
-    resolution: {integrity: sha512-oSftxWC3TwxijEUk996YNPprzU+KZRzkCeRc6RLhs3HMWybtv1jK2zLemi5BU7aqbnlpc2d4WMaTqAd3hcWt6g==}
+  '@orpc/contract@2.0.0-beta.35':
+    resolution: {integrity: sha512-NjuzRNQAhIeozt3alkOVXrXlTTzgpUo9XDAdt/FPcmSEsUyv4BgJfY19WcIpclqSWv6yO7Wp/i5f4CGmUiGG8A==}
 
-  '@orpc/server@2.0.0-beta.34':
-    resolution: {integrity: sha512-lC/gSn/Yywmio6PL7qAYf/EJeStlfGkCVO/Rt1p7zxF+IJ1Wz/mh9wVPmfDqpvvq0V9S42T61ZaCeJVekBZFjA==}
+  '@orpc/server@2.0.0-beta.35':
+    resolution: {integrity: sha512-q4I6f8eOxZ+7TwBv+wHbRZeTSmPCLEGcU7K1m2EZ7jEdl/VgzRp9wHOhT4ODkneDLhd6PJZxF81uL9q/QGOiHg==}
     peerDependencies:
       crossws: '>=0.3.4'
       fastify: '>=5.6.1'
@@ -887,13 +887,8 @@ packages:
       fastify:
         optional: true
 
-  '@orpc/shared@2.0.0-beta.34':
-    resolution: {integrity: sha512-8vmWOl9yX+6CdY1T4+WFPPCvQsprYwb1Y25kVG362yco1joFh/MjVaf6TFV27ivUQFKDDhnq1yFP0Ykh2TWxqw==}
-    peerDependencies:
-      '@opentelemetry/api': '>=1.9.0'
-    peerDependenciesMeta:
-      '@opentelemetry/api':
-        optional: true
+  '@orpc/shared@2.0.0-beta.35':
+    resolution: {integrity: sha512-b3CN1oHnkkC9IDN1ByTbes3PdgBdOgo7wfsyqkLgk3hgUbjZ1lwb6TiqzuKjrfSljYiEZX2TlND/sZN6YR4tFA==}
 
   '@oxc-parser/binding-android-arm-eabi@0.120.0':
     resolution: {integrity: sha512-WU3qtINx802wOl8RxAF1v0VvmC2O4D9M8Sv486nLeQ7iPHVmncYZrtBhB4SYyX+XZxj2PNnCcN+PW21jHgiOxg==}
@@ -3293,28 +3288,24 @@ snapshots:
       '@neodrag/core': 3.0.0-next.11
       solid-js: 1.9.15
 
-  '@orpc/client@2.0.0-beta.34':
+  '@orpc/client@2.0.0-beta.35':
     dependencies:
-      '@orpc/shared': 2.0.0-beta.34
+      '@orpc/shared': 2.0.0-beta.35
       '@standard-server/core': 0.9.0
       '@standard-server/fetch': 0.9.0
       '@standard-server/peer': 0.9.0
-    transitivePeerDependencies:
-      - '@opentelemetry/api'
 
-  '@orpc/contract@2.0.0-beta.34':
+  '@orpc/contract@2.0.0-beta.35':
     dependencies:
-      '@orpc/client': 2.0.0-beta.34
-      '@orpc/shared': 2.0.0-beta.34
+      '@orpc/client': 2.0.0-beta.35
+      '@orpc/shared': 2.0.0-beta.35
       '@standard-schema/spec': 1.1.0
-    transitivePeerDependencies:
-      - '@opentelemetry/api'
 
-  '@orpc/server@2.0.0-beta.34':
+  '@orpc/server@2.0.0-beta.35':
     dependencies:
-      '@orpc/client': 2.0.0-beta.34
-      '@orpc/contract': 2.0.0-beta.34
-      '@orpc/shared': 2.0.0-beta.34
+      '@orpc/client': 2.0.0-beta.35
+      '@orpc/contract': 2.0.0-beta.35
+      '@orpc/shared': 2.0.0-beta.35
       '@standard-server/aws-lambda': 0.9.0
       '@standard-server/core': 0.9.0
       '@standard-server/fastify': 0.9.0
@@ -3322,10 +3313,8 @@ snapshots:
       '@standard-server/node': 0.9.0
       '@standard-server/peer': 0.9.0
       cookie: 2.0.1
-    transitivePeerDependencies:
-      - '@opentelemetry/api'
 
-  '@orpc/shared@2.0.0-beta.34':
+  '@orpc/shared@2.0.0-beta.35':
     dependencies:
       '@standard-server/shared': 0.9.0
       radash: 12.1.1

@@ -29,9 +29,9 @@ catalog:
 
 catalogs:
   orpc:
-    "@orpc/client": 2.0.0-beta.34
-    "@orpc/contract": 2.0.0-beta.34
-    "@orpc/server": 2.0.0-beta.34
+    "@orpc/client": 2.0.0-beta.35
+    "@orpc/contract": 2.0.0-beta.35
+    "@orpc/server": 2.0.0-beta.35
 
   test:
     "@vitest/coverage-v8": 4.1.11
@@ -65,3 +65,5 @@ peerDependencyRules:
   allowedVersions:
     vite: "*"
     vitest: "*"
+
+minimumReleaseAgeStrict: false
