@@ -1,11 +1,11 @@
 import { createORPCClient } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
-import type { RPC } from "@xqvvu/api/client";
+import type { RPCClient } from "@xqvvu/api/client";
 import { describe, expect, it } from "vite-plus/test";
 
 import { app } from "@/app";
 
-const client: RPC = createORPCClient(
+const client: RPCClient = createORPCClient(
   new RPCLink({
     origin: "http://localhost",
     url: "/rpc",
