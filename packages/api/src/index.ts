@@ -1,3 +1,3 @@
 export { contract } from "./contract";
-export type { RPC as ApiClient } from "./client";
+export type { RPCClient } from "./client";
 export { HealthCheckOutput } from "./schemas";
