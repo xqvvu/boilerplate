@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import { UI } from "@xqvvu/ui";
+import { UIProvider } from "@xqvvu/ui";
 
 import TanStackDevtools from "@/misc/tanstack-devtools.tsx";
 
@@ -9,10 +9,10 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <UI>
+    <UIProvider>
       <Outlet />
 
       <TanStackDevtools />
-    </UI>
+    </UIProvider>
   );
 }

@@ -17,8 +17,6 @@ catalog:
   "@stylexjs/stylex": ^0.19.0
   "@stylexjs/eslint-plugin": ^0.19.0
   "@stylexjs/unplugin": ^0.19.0
-  "@hono/node-server": ^2.1.1
-  hono: ^4.13.7
   tsx: ^4.23.13
   "@astryxdesign/core": 0.5.4
   "@astryxdesign/theme-neutral": 0.5.4
@@ -26,12 +24,14 @@ catalog:
   vitest: 4.1.11
   "@vitest/coverage-v8": 4.1.11
   "@vitest/ui": 4.1.11
+  "@t3-oss/env-core": ^0.13.11
 
 catalogs:
   orpc:
     "@orpc/client": 2.0.0-beta.35
     "@orpc/contract": 2.0.0-beta.35
     "@orpc/server": 2.0.0-beta.35
+    "@orpc/openapi": 2.0.0-beta.35
 
   test:
     "@vitest/coverage-v8": 4.1.11
@@ -75,3 +75,5 @@ minimumReleaseAgeExclude:
   - "@orpc/contract@2.0.0-beta.35"
   - "@orpc/server@2.0.0-beta.35"
   - "@orpc/shared@2.0.0-beta.35"
+  - "@orpc/openapi@2.0.0-beta.35"
+  - "@orpc/json-schema@2.0.0-beta.35"

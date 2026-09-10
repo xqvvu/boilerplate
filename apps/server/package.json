@@ -2,7 +2,7 @@
   "name": "@xqvvu/server",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/main.ts",
+    "dev": "tsx watch --env-file-if-exists=.env src/main.ts",
     "build": "tsc && vp pack",
     "start": "node --enable-source-maps dist/main.mjs",
     "test": "vp test run",
@@ -11,10 +11,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@hono/node-server": "catalog:",
+    "@orpc/openapi": "catalog:orpc",
     "@orpc/server": "catalog:orpc",
+    "@t3-oss/env-core": "catalog:",
     "@xqvvu/api": "workspace:*",
-    "hono": "catalog:"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@orpc/client": "catalog:orpc",

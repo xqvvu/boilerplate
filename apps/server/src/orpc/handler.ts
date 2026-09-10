@@ -1,14 +1,14 @@
+import { OpenAPIHandler } from "@orpc/openapi/node";
 import { onError } from "@orpc/server";
-import { RPCHandler } from "@orpc/server/fetch";
-import { RPC_DEFAULT_ALLOW_METHODS } from "@orpc/server/standard";
+import { CORSHandlerPlugin } from "@orpc/server/plugins";
 
 import { router } from "@/orpc/router";
 
-export const rpcHandler = new RPCHandler(router, {
-  allowMethods: RPC_DEFAULT_ALLOW_METHODS,
+export const rpcHandler = new OpenAPIHandler(router, {
+  plugins: [new CORSHandlerPlugin()],
   interceptors: [
     onError((error) => {
-      console.error("oRPC request failed", error);
+      console.error(error);
     }),
   ],
 });

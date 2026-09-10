@@ -1,28 +1,19 @@
-import { Hono } from "hono";
+import { createServer } from "node:http";
 
-import { requestId } from "@/middlewares/request-id";
+import { notFound } from "@/errors/not-found";
 import { rpcHandler } from "@/orpc/handler";
 
-export const app = new Hono<Env>();
+export function createApp() {
+  const app = createServer(async (req, res) => {
+    const { matched } = await rpcHandler.handle(req, res, {
+      prefix: "/rpc",
+      context: {},
+    });
 
-app.use("*", requestId());
-
-app.use("/rpc/*", async (c, next) => {
-  const { matched, response } = await rpcHandler.handle(c.req.raw, {
-    prefix: "/rpc",
-    context: {
-      headers: c.req.raw.headers,
-      requestId: c.var.requestId,
-    },
+    if (!matched) {
+      notFound.end(res);
+    }
   });
 
-  if (matched) {
-    return c.newResponse(response.body, response);
-  }
-
-  await next();
-});
-
-app.notFound((c) => {
-  return c.json({ message: "Not found" }, 404);
-});
+  return app;
+}

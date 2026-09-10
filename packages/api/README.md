@@ -4,7 +4,7 @@ Shared API contract for the boilerplate's oRPC v2 API.
 
 This package is the boundary between the web client and server implementation.
 It contains API schemas, procedure contracts, and client types. It must not
-contain handlers, database access, Hono types, ORM entities, or server-only
+contain handlers, database access, Node HTTP types, ORM entities, or server-only
 environment values.
 
 ## Structure

@@ -4,44 +4,48 @@ import stylex from "@stylexjs/unplugin";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
-import { defineConfig } from "vite-plus";
+import { defineConfig, loadEnv } from "vite-plus";
 
-const apiProxyTarget = process.env["API_PROXY_TARGET"] ?? "http://127.0.0.1:3000";
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, ".", "");
 
-export default defineConfig({
-  resolve: {
-    tsconfigPaths: true,
-  },
-
-  server: {
-    proxy: {
-      "/rpc": apiProxyTarget,
+  return {
+    resolve: {
+      tsconfigPaths: true,
     },
-  },
 
-  plugins: [
-    stylex.vite({
-      useCSSLayers: true,
-      dev: process.env.NODE_ENV === "development",
-      runtimeInjection: false,
-      lightningcssOptions: {},
-    }),
-    devtools(),
-    tanstackRouter({
-      target: "react",
-      quoteStyle: "double",
-      addExtensions: false,
-      autoCodeSplitting: true,
-      generatedRouteTree: path.join(import.meta.dirname, "src/route-tree.gen.ts"),
-    }),
-    viteReact(),
-  ],
-
-  test: {
-    include: ["src/**/*.{test,spec}.{ts,tsx}", "test/**/*.{test,spec}.{ts,tsx}"],
-    coverage: {
-      provider: "v8",
-      reporter: ["text", "html-spa"],
+    server: {
+      proxy: {
+        "/rpc": {
+          target: env["SERVER_RPC_BASE_URL"],
+        },
+      },
     },
-  },
+
+    plugins: [
+      stylex.vite({
+        useCSSLayers: true,
+        dev: process.env.NODE_ENV === "development",
+        runtimeInjection: false,
+        lightningcssOptions: {},
+      }),
+      devtools(),
+      tanstackRouter({
+        target: "react",
+        quoteStyle: "double",
+        addExtensions: false,
+        autoCodeSplitting: true,
+        generatedRouteTree: path.join(import.meta.dirname, "src/route-tree.gen.ts"),
+      }),
+      viteReact(),
+    ],
+
+    test: {
+      include: ["src/**/*.{test,spec}.{ts,tsx}", "test/**/*.{test,spec}.{ts,tsx}"],
+      coverage: {
+        provider: "v8",
+        reporter: ["text", "html-spa"],
+      },
+    },
+  };
 });

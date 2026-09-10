@@ -1,20 +1,33 @@
 import { createORPCClient } from "@orpc/client";
-import { RPCLink } from "@orpc/client/fetch";
+import type { JsonifiedClient } from "@orpc/openapi";
+import { OpenAPILink } from "@orpc/openapi/fetch";
+import { contract } from "@xqvvu/api";
 import type { RPCClient } from "@xqvvu/api/client";
-import { describe, expect, it } from "vite-plus/test";
+import { afterAll, beforeAll, describe, expect, it } from "vite-plus/test";
 
-import { app } from "@/app";
+import { createApp } from "@/app";
+import { close, listen } from "@/lifecycle";
 
-const client: RPCClient = createORPCClient(
-  new RPCLink({
-    origin: "http://localhost",
-    url: "/rpc",
-    fetch: async (url, init) => app.fetch(new Request(url, init)),
-  }),
-);
+const server = createApp();
+let origin: string;
+let client: JsonifiedClient<RPCClient>;
+
+beforeAll(async () => {
+  origin = await listen(server, { host: "127.0.0.1", port: 0 });
+  client = createORPCClient(
+    new OpenAPILink(contract, {
+      origin,
+      url: "/rpc",
+    }),
+  );
+});
+
+afterAll(async () => {
+  await close(server);
+});
 
 describe("oRPC", () => {
-  it("serves the health check through Hono", async () => {
+  it("serves the health check through node:http", async () => {
     await expect(client.health.check()).resolves.toEqual({ status: "ok" });
   });
 });

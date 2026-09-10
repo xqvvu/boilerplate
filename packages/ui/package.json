@@ -4,8 +4,16 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./actions": "./src/components/actions.ts",
     "./astryx.stylex": "./src/tokens/astryx.stylex.ts",
-    "./tokens.stylex": "./src/tokens/tokens.stylex.ts"
+    "./data-display": "./src/components/data-display.ts",
+    "./feedback": "./src/components/feedback.ts",
+    "./forms": "./src/components/forms.ts",
+    "./layout": "./src/components/layout.ts",
+    "./navigation": "./src/components/navigation.ts",
+    "./theme": "./src/theme.ts",
+    "./tokens.stylex": "./src/tokens/tokens.stylex.ts",
+    "./typography": "./src/components/typography.ts"
   },
   "scripts": {
     "typecheck": "tsc"

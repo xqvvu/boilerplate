@@ -43,7 +43,7 @@ Use a feature-first modular monolith for `apps/server`.
 - Add `application/` for meaningful use-case orchestration, `domain/` for complex invariants, and `ports/` plus infrastructure adapters only when external I/O requires dependency inversion.
 - Do not create empty Clean Architecture layers, a catch-all `service.ts`, or generic cross-feature folders without a concrete need.
 - Organize public router namespaces by business capability, not by HTTP method or implementation filename.
-- Keep `packages/api` limited to public schemas, contracts, and client types. Do not put Hono context, database models, or server-only values there.
+- Keep `packages/api` limited to public schemas, contracts, and client types. Do not put Node HTTP context, database models, or server-only values there.
 - Use `@/...` for all internal imports within `apps/server`; use workspace package names such as `@xqvvu/api` for cross-package imports.
 
 <!--PROJECT-->

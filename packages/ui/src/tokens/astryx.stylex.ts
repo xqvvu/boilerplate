@@ -1,6 +1,15 @@
 export {
+  borderVars,
   colorVars,
+  durationVars,
+  easeVars,
+  focusVars,
+  fontWeightVars,
   radiusVars,
   shadowVars,
+  sizeVars,
   spacingVars,
+  textSizeVars,
+  typographyVars,
+  typeScaleVars,
 } from "@astryxdesign/core/theme/tokens.stylex";

@@ -1,10 +1,48 @@
-import * as stylex from "@stylexjs/stylex";
+import {
+  borderVars,
+  colorVars,
+  durationVars,
+  easeVars,
+  focusVars,
+  fontWeightVars,
+  radiusVars,
+  shadowVars,
+  sizeVars,
+  spacingVars,
+  textSizeVars,
+  typographyVars,
+  typeScaleVars,
+} from "@astryxdesign/core/theme/tokens.stylex";
 
-export const tokens = stylex.defineVars({
-  bodyFontSize: "1.125rem",
-  bodyLineHeight: "1.75rem",
-  bodySpacing: "1rem",
-  headingFontSize: "2.25rem",
-  headingLineHeight: "2.5rem",
-  pagePadding: "2rem",
-});
+export {
+  borderVars,
+  colorVars,
+  durationVars,
+  easeVars,
+  focusVars,
+  fontWeightVars,
+  radiusVars,
+  shadowVars,
+  sizeVars,
+  spacingVars,
+  textSizeVars,
+  typographyVars,
+  typeScaleVars,
+};
+
+/** Token families grouped by intent for custom UI components. */
+export const tokens = {
+  border: borderVars,
+  color: colorVars,
+  duration: durationVars,
+  ease: easeVars,
+  focus: focusVars,
+  fontWeight: fontWeightVars,
+  radius: radiusVars,
+  shadow: shadowVars,
+  size: sizeVars,
+  spacing: spacingVars,
+  textSize: textSizeVars,
+  typography: typographyVars,
+  typeScale: typeScaleVars,
+} as const;
