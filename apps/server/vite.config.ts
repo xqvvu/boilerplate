@@ -14,6 +14,7 @@ export default defineConfig({
   },
 
   pack: {
+    deps: { resolveDepSubpath: true },
     entry: ["src/main.ts"],
     format: "esm",
     clean: true,
