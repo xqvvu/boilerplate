@@ -1,5 +1,9 @@
 import { implement } from "@orpc/server";
+import type { ResponseHeadersHandlerPluginContext } from "@orpc/server/plugins";
 import { contract } from "@xqvvu/api";
 
-// Keep one implementer so every feature shares the same contract and context.
-export const os = implement(contract).$context<{}>();
+import { requestId } from "@/middlewares/request-id";
+
+export const os = implement(contract)
+  .$context<ResponseHeadersHandlerPluginContext>()
+  .use(requestId());

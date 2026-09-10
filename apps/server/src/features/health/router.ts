@@ -1,7 +1,9 @@
 import { os } from "@/orpc/os";
 
 export const healthRouter = os.health.router({
-  check: os.health.check.handler(() => ({
-    status: "ok" as const,
-  })),
+  check: os.health.check.handler(() => {
+    return {
+      status: "ok",
+    };
+  }),
 });
