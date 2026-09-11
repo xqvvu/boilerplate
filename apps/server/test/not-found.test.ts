@@ -20,6 +20,9 @@ describe("not found", () => {
 
     expect(response.status).toBe(404);
     expect(response.headers.get("content-type")).toContain("application/json");
-    await expect(response.json()).resolves.toEqual({ message: "not found" });
+    await expect(response.json()).resolves.toEqual({
+      code: "NOT_FOUND",
+      message: expect.any(String),
+    });
   });
 });

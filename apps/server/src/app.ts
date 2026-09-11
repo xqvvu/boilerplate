@@ -1,6 +1,7 @@
 import { createServer } from "node:http";
 
-import { notFound } from "@/errors/not-found";
+import { notFound } from "@xqvvu/api/errors";
+
 import { rpcHandler } from "@/orpc/handler";
 
 export function createApp() {
@@ -10,9 +11,7 @@ export function createApp() {
       context: {},
     });
 
-    if (!matched) {
-      notFound.end(res);
-    }
+    if (!matched) notFound.end(res);
   });
 
   return app;

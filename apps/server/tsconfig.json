@@ -5,5 +5,11 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "../../packages/typings/server.d.ts",
+    "../../packages/typings/orpc.d.ts"
+  ]
 }
