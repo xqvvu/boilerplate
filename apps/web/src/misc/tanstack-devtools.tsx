@@ -1,9 +1,9 @@
-import { TanStackDevtools } from "@tanstack/react-devtools";
+import { TanStackDevtools as __TanStackDevtools } from "@tanstack/react-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-export default function () {
+export function TanStackDevtools() {
   return (
-    <TanStackDevtools
+    <__TanStackDevtools
       config={{
         position: "bottom-right",
       }}
