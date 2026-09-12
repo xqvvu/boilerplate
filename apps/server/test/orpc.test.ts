@@ -17,7 +17,7 @@ beforeAll(async () => {
   client = createORPCClient(
     new OpenAPILink(contract, {
       origin,
-      url: "/rpc",
+      url: "/api",
     }),
   );
 });

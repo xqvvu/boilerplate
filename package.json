@@ -13,15 +13,16 @@
     "typecheck": "vp run -r typecheck"
   },
   "devDependencies": {
-    "@astryxdesign/cli": "catalog:",
-    "@astryxdesign/core": "catalog:",
-    "@astryxdesign/theme-neutral": "catalog:",
-    "@stylexjs/eslint-plugin": "catalog:",
-    "@stylexjs/stylex": "catalog:",
+    "@astryxdesign/cli": "catalog:astryx",
+    "@astryxdesign/core": "catalog:astryx",
+    "@astryxdesign/theme-neutral": "catalog:astryx",
+    "@stylexjs/eslint-plugin": "catalog:astryx",
+    "@stylexjs/stylex": "catalog:astryx",
+    "@tanstack/eslint-plugin-query": "catalog:tanstack",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
-  "packageManager": "pnpm@12.4.0",
+  "packageManager": "pnpm@12.4.1",
   "astryx": {
     "theme": "@astryxdesign/theme-neutral"
   }

@@ -6,13 +6,19 @@
   },
 
   "files.readonlyInclude": {
-    "**/route-tree.gen.ts": true
+    "**/route-tree.gen.ts": true,
+    "pnpm-lock.yaml": true,
+    ".agents": true
   },
   "files.watcherExclude": {
-    "**/route-tree.gen.ts": true
+    "**/route-tree.gen.ts": true,
+    "pnpm-lock.yaml": true,
+    ".agents": true
   },
   "search.exclude": {
-    "**/route-tree.gen.ts": true
+    "**/route-tree.gen.ts": true,
+    "pnpm-lock.yaml": true,
+    ".agents": true
   },
 
   "yaml.format.enable": false,

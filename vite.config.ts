@@ -32,12 +32,22 @@ export default defineConfig({
       {
         files: ["apps/web/**", "packages/ui/**"],
         plugins: ["react", "react-perf", "vitest"],
-        jsPlugins: ["@stylexjs/eslint-plugin"],
+        jsPlugins: ["@stylexjs/eslint-plugin", "@tanstack/eslint-plugin-query"],
         rules: {
+          // @stylexjs/eslint-plugin "flat/recommended"
           "@stylexjs/valid-styles": "error",
           "@stylexjs/no-unused": "error",
           "@stylexjs/valid-shorthands": "warn",
           "@stylexjs/sort-keys": "warn",
+
+          // @tanstack/eslint-plugin-query "flat/recommended"
+          "@tanstack/query/exhaustive-deps": "error",
+          "@tanstack/query/no-rest-destructuring": "warn",
+          "@tanstack/query/stable-query-client": "error",
+          "@tanstack/query/no-unstable-deps": "error",
+          "@tanstack/query/infinite-query-property-order": "error",
+          "@tanstack/query/no-void-query-fn": "error",
+          "@tanstack/query/mutation-property-order": "error",
         },
       },
       {

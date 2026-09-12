@@ -1,7 +1,8 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { UIProvider } from "@xqvvu/ui";
 
-import TanStackDevtools from "@/misc/tanstack-devtools.tsx";
+import TanStackDevtools from "@/misc/tanstack-devtools";
+import TanStackQueryProvider from "@/misc/tanstack-query";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -10,7 +11,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <UIProvider>
-      <Outlet />
+      <TanStackQueryProvider>
+        <Outlet />
+      </TanStackQueryProvider>
 
       <TanStackDevtools />
     </UIProvider>

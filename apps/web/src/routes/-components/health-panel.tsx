@@ -1,7 +1,7 @@
 import { Text, Button, Card, Grid, HStack, Heading, StatusDot, VStack } from "@xqvvu/ui";
 import { useCallback, useEffect, useState } from "react";
 
-import { rpc } from "#/lib/orpc.ts";
+import { rpcClient } from "#/lib/orpc.ts";
 
 type HealthState =
   | { status: "checking" }
@@ -15,7 +15,7 @@ export function HealthPanel() {
 
   const requestHealth = useCallback(async (): Promise<HealthResult> => {
     try {
-      const response = await rpc.health.check();
+      const response = await rpcClient.health.check();
       return {
         status: "healthy",
         checkedAt: new Date(),
@@ -83,7 +83,7 @@ export function HealthPanel() {
             <Text type="label" color="secondary">
               Endpoint
             </Text>
-            <Text type="code">POST /rpc/health/check</Text>
+            <Text type="code">POST /api/health/check</Text>
           </VStack>
           <VStack gap={1}>
             <Text type="label" color="secondary">

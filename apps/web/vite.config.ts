@@ -16,8 +16,8 @@ export default defineConfig(({ mode }) => {
 
     server: {
       proxy: {
-        "/rpc": {
-          target: env["SERVER_RPC_BASE_URL"],
+        "/api": {
+          target: env["SERVER_API_BASE_URL"],
         },
       },
     },

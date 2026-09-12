@@ -19,9 +19,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@astryxdesign/core": "catalog:",
-    "@astryxdesign/theme-neutral": "catalog:",
-    "@stylexjs/stylex": "catalog:",
+    "@astryxdesign/core": "catalog:astryx",
+    "@astryxdesign/theme-neutral": "catalog:astryx",
+    "@stylexjs/stylex": "catalog:astryx",
     "react": "catalog:react"
   },
   "devDependencies": {
