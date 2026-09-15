@@ -9,11 +9,11 @@ allowBuilds:
   lightningcss: true
 
 catalog:
-  vite-plus: 0.3.1
-  vite: npm:@voidzero-dev/vite-plus-core@0.3.1
+  vite-plus: 0.3.2
+  vite: npm:@voidzero-dev/vite-plus-core@0.3.2
   tsx: ^4.23.13
   typescript: ^7.0.2
-  zod: ^4.6.2
+  zod: ^4.6.5
   "@types/node": ^26.5.1
   "@t3-oss/env-core": ^0.13.11
 
@@ -39,11 +39,11 @@ catalogs:
 
   tanstack:
     "@tanstack/react-devtools": ^0.10.12
-    "@tanstack/react-router": ^1.170.35
-    "@tanstack/react-router-devtools": ^1.167.1
+    "@tanstack/react-router": ^1.170.36
+    "@tanstack/react-router-devtools": ^1.167.2
     "@tanstack/devtools-vite": ^0.8.5
-    "@tanstack/router-cli": ^1.167.35
-    "@tanstack/router-plugin": ^1.168.37
+    "@tanstack/router-cli": ^1.167.36
+    "@tanstack/router-plugin": ^1.168.38
     "@tanstack/eslint-plugin-query": ^5.102.8
     "@tanstack/react-query": ^5.102.8
 
@@ -69,3 +69,21 @@ peerDependencyRules:
 minimumReleaseAgeStrict: false
 minimumReleaseAgeExcludePrune: true
 minimumReleaseAgeIgnoreMissingTime: true
+
+minimumReleaseAgeExclude:
+  - "@orpc/client@2.0.0-beta.35"
+  - "@orpc/contract@2.0.0-beta.35"
+  - "@orpc/server@2.0.0-beta.35"
+  - "@orpc/shared@2.0.0-beta.35"
+  - "@orpc/openapi@2.0.0-beta.35"
+  - "@orpc/json-schema@2.0.0-beta.35"
+  - "@voidzero-dev/vite-plus-core@0.3.2"
+  - "@voidzero-dev/vite-plus-darwin-arm64@0.3.2"
+  - "@voidzero-dev/vite-plus-darwin-x64@0.3.2"
+  - "@voidzero-dev/vite-plus-linux-arm64-gnu@0.3.2"
+  - "@voidzero-dev/vite-plus-linux-arm64-musl@0.3.2"
+  - "@voidzero-dev/vite-plus-linux-x64-gnu@0.3.2"
+  - "@voidzero-dev/vite-plus-linux-x64-musl@0.3.2"
+  - "@voidzero-dev/vite-plus-win32-arm64-msvc@0.3.2"
+  - "@voidzero-dev/vite-plus-win32-x64-msvc@0.3.2"
+  - vite-plus@0.3.2
