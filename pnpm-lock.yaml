@@ -328,6 +328,9 @@ importers:
         specifier: 'catalog:'
         version: 4.6.5
     devDependencies:
+      '@orpc/client':
+        specifier: catalog:orpc
+        version: 2.0.0-beta.38
       '@types/node':
         specifier: 'catalog:'
         version: 26.6.3

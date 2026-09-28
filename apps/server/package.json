@@ -20,6 +20,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@orpc/client": "catalog:orpc",
     "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
