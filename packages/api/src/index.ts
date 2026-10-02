@@ -1,3 +1,3 @@
 export { contract } from "./contract";
 export type { RPCClient } from "./client";
-export { HealthCheckOutput } from "./schemas";
+export { HealthCheckOutputSchema as HealthCheckOutput } from "./schemas";

@@ -3,31 +3,21 @@ import type { JsonifiedClient } from "@orpc/openapi";
 import { OpenAPILink } from "@orpc/openapi/fetch";
 import { contract } from "@xqvvu/api";
 import type { RPCClient } from "@xqvvu/api/client";
-import { afterAll, beforeAll, describe, expect, it } from "vite-plus/test";
+import { describe, expect, it } from "vite-plus/test";
 
 import { createApp } from "@/app";
-import { close, listen } from "@/lifecycle";
 
-const server = createApp();
-let origin: string;
-let client: JsonifiedClient<RPCClient>;
+const app = createApp();
 
-beforeAll(async () => {
-  origin = await listen(server, { host: "127.0.0.1", port: 0 });
-  client = createORPCClient(
-    new OpenAPILink(contract, {
-      origin,
-      url: "/api",
-    }),
-  );
-});
-
-afterAll(async () => {
-  await close(server);
-});
+const client: JsonifiedClient<RPCClient> = createORPCClient(
+  new OpenAPILink(contract, {
+    url: "/api",
+    fetch: (url, init) => app.handle(new Request(new URL(url, "http://localhost"), init)),
+  }),
+);
 
 describe("oRPC", () => {
-  it("serves the health check through node:http", async () => {
+  it("serves the health check through the Elysia app", async () => {
     await expect(client.health.check()).resolves.toEqual({ status: "ok" });
   });
 });

@@ -25,8 +25,9 @@ in `src/features`, and a browser client in `../web/src/lib/orpc.ts`.
 
 The server uses the `node:http` adapter and exposes the RPC endpoint under the
 `/api` prefix. The server port can be changed with `PORT` and defaults to
-`8888`. The web Vite proxy target can be changed with
-`SERVER_RPC_BASE_URL`.
+`8888`. The web Vite proxy target can be changed with `SERVER_API_BASE_URL`.
+When the web app is deployed on a different origin than the API, set
+`VITE_API_ORIGIN` in the web app to the API origin.
 
 The shared contract is maintained in
 [`@xqvvu/api`](../../packages/api/README.md).

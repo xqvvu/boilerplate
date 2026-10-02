@@ -1,32 +1,40 @@
-import { createServer } from "node:http";
+import { node } from "@elysia/node";
+import { Elysia } from "elysia";
 
-import { notFound } from "@xqvvu/api/errors";
-
-import { handleGenerateOpenAPISpecs, handleRenderScalar } from "@/lib/openapi";
+import { requestId, REQUEST_ID_HEADER_NAME } from "@/middlewares/request-id";
 import { rpcHandler } from "@/orpc/handler";
 
 export function createApp() {
-  const app = createServer(async (req, res) => {
-    const { matched } = await rpcHandler.handle(req, res, {
-      prefix: "/api",
-      context: {},
-    });
-
-    if (req.url === "/specs.json") {
-      void handleGenerateOpenAPISpecs(res);
-      return;
-    }
-
-    if (req.url === "/specs") {
-      handleRenderScalar(res);
-      return;
-    }
-
-    if (!matched) {
-      notFound.end(res);
-      return;
-    }
+  const app = new Elysia({
+    adapter: node(),
   });
+
+  app
+    .onRequest(({ request, set }) => {
+      set.headers[REQUEST_ID_HEADER_NAME] = requestId(request);
+    })
+    .derive(({ set }) => {
+      const requestId = set.headers[REQUEST_ID_HEADER_NAME] as string;
+      return {
+        requestId,
+      };
+    })
+    .all(
+      "/api/*",
+      async ({ request, requestId }) => {
+        const { response } = await rpcHandler.handle(request, {
+          prefix: "/api",
+          context: {
+            requestId,
+          },
+        });
+
+        return response;
+      },
+      {
+        parse: "none",
+      },
+    );
 
   return app;
 }

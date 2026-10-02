@@ -5,18 +5,22 @@
   "scripts": {
     "dev": "tsx watch --env-file-if-exists=.env src/main.ts",
     "build": "tsc && vp pack",
-    "start": "node --enable-source-maps dist/main.mjs",
+    "start": "NODE_ENV=production node --enable-source-maps dist/main.mjs",
     "test": "vp test run",
     "test:ui": "vp test run -w --ui",
     "test:coverage": "vp test run --ui -w --coverage",
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@elysia/node": "catalog:",
     "@orpc/openapi": "catalog:orpc",
     "@orpc/server": "catalog:orpc",
     "@orpc/zod": "catalog:orpc",
+    "@sinclair/typebox": "catalog:",
     "@t3-oss/env-core": "catalog:",
     "@xqvvu/api": "workspace:*",
+    "elysia": "catalog:",
+    "openapi-types": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {

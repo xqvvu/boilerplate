@@ -13,13 +13,15 @@ environment values.
 src/
 ├─ schemas/       # API DTO schemas and reusable error data
 ├─ contract/      # oRPC procedure contracts grouped by domain
+├─ errors/        # Error codes and messages shared with callers
 ├─ client.ts      # RouterContractClient type
 └─ index.ts       # Public exports and the root contract
 ```
 
 Keep schemas and contracts grouped by domain. A schema used by one simple
 procedure may stay in its contract module; move shared schemas to
-`schemas/<domain>.ts`.
+`schemas/<domain>.ts`. Error modules hold plain data only: writing an HTTP
+response belongs to the server package.
 
 ## Adding an API
 

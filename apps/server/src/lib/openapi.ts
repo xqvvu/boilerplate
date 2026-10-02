@@ -1,6 +1,8 @@
+import type { ServerResponse } from "node:http";
+
 import { OpenAPIGenerator } from "@orpc/openapi";
 import { ZodToJsonSchemaConverter } from "@orpc/zod";
-import packageJson from "@packageJson";
+import packageJson from "@package-json";
 
 import { router } from "@/orpc/router";
 

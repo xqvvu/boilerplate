@@ -1,1 +1,1 @@
-export { HealthCheckOutput } from "./health";
+export { HealthCheckOutputSchema } from "./health";

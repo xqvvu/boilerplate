@@ -7,7 +7,7 @@ import viteReact from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite-plus";
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, ".", "");
+  const env = loadEnv(mode, ".");
 
   return {
     resolve: {
@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: env["SERVER_API_BASE_URL"],
+          target: env["VITE_API_ORIGIN"],
         },
       },
     },
@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       stylex.vite({
         useCSSLayers: true,
-        dev: process.env.NODE_ENV === "development",
+        dev: import.meta.env.DEV,
         runtimeInjection: false,
         lightningcssOptions: {},
       }),

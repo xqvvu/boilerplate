@@ -5,13 +5,8 @@
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@packageJson": ["./package.json"]
+      "@package-json": ["./package.json"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.d.ts",
-    "../../packages/typings/server.d.ts",
-    "../../packages/typings/orpc.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.d.ts"]
 }

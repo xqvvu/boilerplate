@@ -1,4 +1,4 @@
-import { OpenAPIHandler } from "@orpc/openapi/node";
+import { OpenAPIHandler } from "@orpc/openapi/fetch";
 import { onError } from "@orpc/server";
 import {
   CORSHandlerPlugin,
@@ -6,13 +6,14 @@ import {
   ResponseHeadersHandlerPlugin,
 } from "@orpc/server/plugins";
 
+import { ALLOW_HEADERS, EXPOSE_HEADERS } from "@/lib/constants";
 import { router } from "@/orpc/router";
 
 export const rpcHandler = new OpenAPIHandler(router, {
   plugins: [
     new CORSHandlerPlugin({
-      allowHeaders: ["Content-Disposition", "Standard-Server"],
-      exposeHeaders: ["Content-Disposition", "Standard-Server"],
+      allowHeaders: ALLOW_HEADERS,
+      exposeHeaders: EXPOSE_HEADERS,
     }),
     new ResponseHeadersHandlerPlugin(),
     new ResponseCompressionHandlerPlugin(),
