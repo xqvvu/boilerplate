@@ -1,8 +1,8 @@
-import type { ServerResponse } from "node:http";
-
+import { node } from "@elysia/node";
 import { OpenAPIGenerator } from "@orpc/openapi";
 import { ZodToJsonSchemaConverter } from "@orpc/zod";
 import packageJson from "@package-json";
+import { Elysia } from "elysia";
 
 import { router } from "@/orpc/router";
 
@@ -10,8 +10,8 @@ export const openAPIGenerator = new OpenAPIGenerator({
   converters: [new ZodToJsonSchemaConverter()],
 });
 
-export async function handleGenerateOpenAPISpecs(res: ServerResponse) {
-  const spec = await openAPIGenerator.generate(router, {
+export async function generateOpenAPISpec() {
+  return openAPIGenerator.generate(router, {
     base: {
       info: {
         title: "Boilerplate",
@@ -29,16 +29,10 @@ export async function handleGenerateOpenAPISpecs(res: ServerResponse) {
       },
     },
   });
-
-  res.writeHead(200, { "Content-Type": "application/json" });
-  res.end(JSON.stringify(spec));
-  return;
 }
 
-export function handleRenderScalar(res: ServerResponse) {
-  const scalar = "https://esm.sh/@scalar/api-reference@1.68.0";
-
-  const html = `
+export function renderScalarReference() {
+  return `
     <!doctype html>
     <html>
       <head>
@@ -46,15 +40,13 @@ export function handleRenderScalar(res: ServerResponse) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="https://orpc.dev/icon.svg" />
-        <link rel="stylesheet" href="${scalar}/dist/style.css" />
       </head>
       <body>
-        <div id="app">Loading the API reference...</div>
+        <div id="app"></div>
 
-        <script type="module">
-          import { createApiReference } from "${scalar}";
-
-          createApiReference('#app', {
+        <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+        <script>
+          Scalar.createApiReference('#app', {
             url: '/specs.json',
             metaData: {
               title: 'Boilerplate API Reference',
@@ -77,8 +69,25 @@ export function handleRenderScalar(res: ServerResponse) {
       </body>
     </html>
   `;
+}
 
-  res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-  res.end(html);
-  return;
+export function createSpecsRoute() {
+  const specs = new Elysia({ adapter: node() });
+  specs
+    .get("/specs.json", async () => {
+      return new Response(JSON.stringify(await generateOpenAPISpec()), {
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+        },
+      });
+    })
+    .get("/specs", () => {
+      return new Response(renderScalarReference(), {
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+        },
+      });
+    });
+
+  return specs;
 }

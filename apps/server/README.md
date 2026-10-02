@@ -8,7 +8,7 @@ Run the server and web app in separate terminals during development:
 
 ```bash
 vp -C apps/server run dev
-vp run dev
+vp -C apps/web run dev
 ```
 
 The production flow is:
@@ -23,11 +23,11 @@ vp -C apps/server run start
 The API uses oRPC v2 with a contract in `packages/api`, feature implementations
 in `src/features`, and a browser client in `../web/src/lib/orpc.ts`.
 
-The server uses the `node:http` adapter and exposes the RPC endpoint under the
-`/api` prefix. The server port can be changed with `PORT` and defaults to
-`8888`. The web Vite proxy target can be changed with `SERVER_API_BASE_URL`.
-When the web app is deployed on a different origin than the API, set
-`VITE_API_ORIGIN` in the web app to the API origin.
+The server runs an Elysia app on the `@elysia/node` adapter. It exposes the RPC
+endpoint under the `/api` prefix, the generated OpenAPI document at
+`/specs.json`, and a Scalar reference UI at `/specs`. The server port can be
+changed with `PORT` and defaults to `8888`. The web app reads the Vite dev proxy
+target and the deployed API origin from `VITE_API_ORIGIN`.
 
 The shared contract is maintained in
 [`@xqvvu/api`](../../packages/api/README.md).
