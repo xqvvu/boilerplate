@@ -1,5 +1,5 @@
 import { node } from "@elysia/node";
-import { Elysia } from "elysia";
+import { Elysia, status } from "elysia";
 
 import { createSpecsRoute } from "@/lib/openapi";
 import { requestId, REQUEST_ID_HEADER_NAME } from "@/middlewares/request-id";
@@ -18,7 +18,7 @@ export function createApp() {
     })
     .all(
       "/api/*",
-      async ({ request, requestId, set }) => {
+      async ({ request, requestId }) => {
         const { matched, response } = await rpcHandler.handle(request, {
           prefix: "/api",
           context: {
@@ -27,8 +27,10 @@ export function createApp() {
         });
 
         if (!matched) {
-          set.status = 404;
-          return { code: "NOT_FOUND", message: "the route not found" };
+          return status(404, {
+            code: "NOT_FOUND",
+            message: "the route not found",
+          });
         }
 
         return response;
