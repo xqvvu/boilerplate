@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch --env-file-if-exists=.env src/main.ts",
+    "dev": "vpx --watch --env-file-if-exists=.env src/main.ts",
     "build": "tsc && vp pack",
     "start": "NODE_ENV=production node --enable-source-maps dist/main.mjs",
     "test": "vp test run",
@@ -28,7 +28,6 @@
     "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
-    "tsx": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:",
